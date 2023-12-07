@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "build": "rimraf ./dist && npx tsc",
-    "start": "npx ts-node ./bin/www",
-    "watch": "npx nodemon"
+    "start": "tsx watch ./bin/www",
+    "postbuild": "cp -r ./src/views dist/src/; cp -r ./public dist/;"
   },
   "dependencies": {
     "connect-livereload": "^0.6.1",
@@ -24,9 +24,8 @@
     "@types/livereload": "^0.9.5",
     "@types/morgan": "^1.9.9",
     "@types/node": "^20.10.3",
-    "nodemon": "^3.0.2",
     "rimraf": "^5.0.5",
-    "ts-node": "^10.9.1",
+    "tsx": "^4.6.2",
     "typescript": "^5.3.2"
   }
 }
