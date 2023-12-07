@@ -7,7 +7,7 @@ This project is created as a template to start any Node-Express project using ty
 Application starts with watch mode on.
 
 ### `yarn build`
-Application build package is created.
+Application build package is created in `./dist` folder.
 
 ### `postbuild`
 The current script depends on linux's `cp` (copy) command.
