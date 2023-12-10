@@ -19,14 +19,15 @@ app.set('views', path.join(__dirname, 'src', 'views'));
 app.set('view engine', 'pug');
 
 // live reload
-const liveReloadServer = livereload.createServer();
-liveReloadServer.server.once("connection", () => {
-  setTimeout(() => {
-    liveReloadServer.refresh("/");
-  }, 100);
-});
-app.use(connectLiveReload());
-
+if (process.env.NODE_ENV === 'development') {
+  const liveReloadServer = livereload.createServer();
+  liveReloadServer.server.once("connection", () => {
+    setTimeout(() => {
+      liveReloadServer.refresh("/");
+    }, 100);
+  });
+  app.use(connectLiveReload());
+}
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
