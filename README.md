@@ -6,7 +6,7 @@ This project is created as a template to start any Node-Express project using ty
 ### `npm start`
 Application starts with watch mode on.
 
-### `npm start-debug`
+### `npm run start-debug`
 
 Application starts with watch mode + debug on.
 
