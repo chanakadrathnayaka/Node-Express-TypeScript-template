@@ -3,8 +3,6 @@ import express, {Express, NextFunction, Request, Response} from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
-import livereload from 'livereload';
-import connectLiveReload from 'connect-livereload';
 import dotenv from 'dotenv';
 
 import indexRouter from './src/routes';
@@ -20,6 +18,8 @@ app.set('view engine', 'pug');
 
 // live reload
 if (process.env.NODE_ENV === 'development') {
+  const livereload = require('livereload');
+  const connectLiveReload = require('connect-livereload');
   const liveReloadServer = livereload.createServer();
   liveReloadServer.server.once("connection", () => {
     setTimeout(() => {
